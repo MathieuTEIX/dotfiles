@@ -5,4 +5,4 @@ This is currently WIP.
 
 ## Preview
 
-![https://github.com/MathieuTEIX/dotfiles/blob/main/images/preview.png]
+!(https://github.com/MathieuTEIX/dotfiles/blob/main/images/preview.png)
