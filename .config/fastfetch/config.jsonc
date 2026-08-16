@@ -1,18 +1,15 @@
 /*
-   ░████████████████████████████████████████████████████████████████
-   ░██								 ░██
-   ░██                                 ░██    ░█ ░█          ░██ ░██
-   ░██  ░██████████    ░███████████     ░██   ░██          ░███	 ░██
-   ░██          ░██    ░██      ░██   ░███████████     ░█████	 ░██
-   ░██         ░██     ░██      ░██     ░██  ░██    ░███  ░██	 ░██
-   ░██       ░███      ░██      ░██     ░██               ░██	 ░██
-   ░██   ░█████        ░███████████     ░████████         ░██	 ░██
-   ░██ 							         ░██
-   ░████████████████████████████████████████████████████████████████
- 
+        ▓
+       ▓▓▓▓▓▓            ▓▓▓▓▓▓▓▓▓▓▓         ▓▓▓     ▓▓▓▓▓ ▓▓  ▓▓▓▓
+          ▓▓▓▓                ▓▓▓▓▓          ▓▓▓     ▓▓▓ ▓     ▓▓▓        ▓▓▓▓
+          ▓▓                ▓▓▓▓         ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓    ▓▓▓         ▓▓▓▓
+       ▓▓▓▓     ▓         ▓▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓    ▓▓▓       ▓▓▓▓         ▓▓▓
+         ▓▓▓▓ ▓▓▓▓     ▓▓▓▓▓▓     ▓▓▓▓       ▓▓▓   ▓ ▓▓▓       ▓▓▓▓   ▓     ▓▓▓▓
+    ▓▓▓   ▓▓▓▓ ▓▓▓▓    ▓▓▓         ▓▓▓▓      ▓▓▓  ▓▓▓▓▓         ▓▓▓   ▓▓▓    ▓▓▓
+ ▓▓▓▓▓     ▓▓▓  ▓▓▓▓              ▓▓▓▓       ▓▓▓                ▓▓▓▓▓▓▓▓     ▓
+  ▓▓  ▓▓▓▓▓▓▓▓   ▓         ▓▓▓▓▓▓▓▓▓▓        ▓▓▓▓▓▓▓▓▓▓▓▓         ▓▓▓▓▓
 
-    █▀▀ ▄▀█ █▀ ▀█▀ █▀▀ █▀▀ ▀█▀ █▀▀ █░█
-    █▀░ █▀█ ▄█ ░█░ █▀░ ██▄ ░█░ █▄▄ █▀█
+  Fastfetch configuration
 
 */
 
@@ -37,23 +34,25 @@
 	    "separator": " "
     },
     "modules": [
-        { "key": "{#cyan}╭──╮", 		"type": "custom" },
-        { "key": "{#cyan}│ {#magenta}│", 	"type": "title", "format": "{user-name}" },
-        { "key": "{#cyan}│{#magenta}󰣇 │", 	"type": "os" },
-        { "key": "{#magenta}│ │", 		"type": "kernel" },
-        { "key": "{#magenta}│ {#blue}│", 	"type": "terminal" },
-        { "key": "{#magenta}│{#blue} │", 	"type": "shell" },
-        { "key": "{#blue}│󰉉 {#yellow}│", 	"type": "disk",
-						"format": "{mountpoint} - {size-used} / {size-total} ({filesystem})"},
-        { "key": "{#blue}│󰍛{#yellow} │", 	"type": "memory",
-						"percent": { "type": 9 } 
+        { "key": "{#cyan}╭──╮", "type": "custom" },
+        { "key": "{#cyan}│ {#magenta}│", "type": "title", "format": "{user-name}" },
+        { "key": "{#cyan}│{#magenta}󰣇 │", "type": "os" },
+        { "key": "{#magenta}│ │", "type": "kernel" },
+        { "key": "{#magenta}│ {#blue}│", "type": "terminal" },
+        { "key": "{#magenta}│{#blue} │", "type": "shell" },
+        { "key": "{#blue}│󰉉 {#yellow}│", "type": "disk", "folders": "/" },
+        { "key": "{#blue}│󰍛{#yellow} │", "type": "memory",
+		"percent": {
+            		"type": 9
+		}
 	},
-        { "key": "{#blue}├─{#yellow}─┤", 	"type": "custom" },
-        { "key": "{#yellow}│ {#green}│", 	"type": "cpu", "format": "{name}" },
-        { "key": "{#yellow}│󰢮 {#green}│", 	"type": "gpu", "format": "{2}" },
+        { "key": "{#blue}├─{#yellow}─┤", "type": "custom" },
+        { "key": "{#yellow}│ {#green}│", "type": "cpu", "format": "{name} ({#red}{freq-max}{#white})" },
+	// Static GPU name for convenience
+        { "key": "{#yellow}│󰢮 {#green}│", "type": "gpu", "format": "Intel Arc Graphics 140V" },
         { "key": "{#yellow}│{#green}󰅐 {#red}│", "type": "uptime" },
-        { "key": "{#green}│ {#red}│", 		"type": "command", "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days" },
-        { "key": "{#green}│{#red} │", 		"type": "colors", "symbol": "circle" },
-        { "key": "{#red}╰──╯", 			"type": "custom" }
+        { "key": "{#green}│ {#red}│", "type": "command", "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days" },
+        { "key": "{#green}│{#red} │", "type": "colors", "symbol": "circle" },
+        { "key": "{#red}╰──╯", "type": "custom" }
     ]
 }

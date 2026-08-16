@@ -16,4 +16,3 @@
 #
 
 fastfetch
-. "$HOME/.cargo/env"
