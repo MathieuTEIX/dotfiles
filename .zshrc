@@ -36,3 +36,6 @@ source /home/mathieu/.config/zsh/plugins.zsh
 source /home/mathieu/.config/zsh/preferences.zsh
 source $ZSH/oh-my-zsh.sh
 
+
+# Unity CLI
+case ":${PATH}:" in *:"$HOME/.local/bin":*) ;; *) export PATH="$HOME/.local/bin:$PATH" ;; esac
